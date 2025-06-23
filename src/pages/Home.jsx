@@ -88,13 +88,13 @@ const Home = () => {
         <div className="blurred-red-circle h-[25rem] w-[25rem] top-[-10rem] left-[-10rem] -z-10"></div>
         <div className="wrapper">
           <div className="grid md:grid-cols-2 gap-10 items-center">
-            <div className="relative">
+            <div className="relative h-full">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="relative z-10"
+                className="relative z-10 h-full"
               >
                 <img
                   src={aboutImg}

@@ -55,7 +55,7 @@ const Header = () => {
             onClick={() => setIsOpen(!isOpen)}
           >
             <Hamburger
-              color="#ffff"
+              color="#000000"
               size="26"
               toggled={isOpen}
               rounded

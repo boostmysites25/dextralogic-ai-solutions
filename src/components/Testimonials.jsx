@@ -8,7 +8,7 @@ import { FaStar, FaUserCircle } from "react-icons/fa";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 const staggerContainer = {
@@ -16,9 +16,9 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2
-    }
-  }
+      staggerChildren: 0.2,
+    },
+  },
 };
 
 const animation = { duration: 30000, easing: (t) => t };
@@ -79,32 +79,39 @@ const Testimonials = () => {
       <div className="blue-bg-shape left-0 top-0 rotate-45"></div>
       <div className="blue-bg-shape right-0 bottom-3 rotate-45"></div>
       <div className="blurred-red-circle h-[25rem] w-[25rem] top-[-10rem] left-1/2 -z-10"></div>
-      
+
       <div className="wrapper relative z-10">
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={staggerContainer}
           className="text-center mb-12"
         >
-          <motion.p variants={fadeIn} className="gradient-text uppercase font-semibold tracking-wider">
+          <motion.p
+            variants={fadeIn}
+            className="gradient-text uppercase font-semibold tracking-wider"
+          >
             Testimonials
           </motion.p>
           <motion.h2 variants={fadeIn} className="heading mt-3 mb-4">
             What Our Clients Say
           </motion.h2>
-          <motion.p variants={fadeIn} className="max-w-3xl mx-auto text-gray-600">
-            Hear from businesses that have transformed their operations with our technology solutions.
+          <motion.p
+            variants={fadeIn}
+            className="max-w-3xl mx-auto text-gray-600"
+          >
+            Hear from businesses that have transformed their operations with our
+            technology solutions.
           </motion.p>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          ref={sliderRef} 
+          ref={sliderRef}
           className="keen-slider"
         >
           {testimonials
@@ -123,14 +130,14 @@ const Testimonials = () => {
                       </div>
                       <RiDoubleQuotesR className="text-5xl text-primary/10" />
                     </div>
-                    
+
                     <p className="text-gray-700 italic flex-grow">"{review}"</p>
-                    
+
                     <div className="mt-6 pt-6 border-t border-gray-100 flex items-center gap-4">
                       {img ? (
-                        <img 
-                          src={img} 
-                          alt={name} 
+                        <img
+                          src={img}
+                          alt={name}
                           className="w-12 h-12 rounded-full object-cover"
                         />
                       ) : (
@@ -148,12 +155,6 @@ const Testimonials = () => {
               </div>
             ))}
         </motion.div>
-        
-        <div className="flex justify-center mt-10 gap-2">
-          <div className="w-3 h-3 rounded-full bg-primary"></div>
-          <div className="w-3 h-3 rounded-full bg-gray-300"></div>
-          <div className="w-3 h-3 rounded-full bg-gray-300"></div>
-        </div>
       </div>
     </div>
   );
