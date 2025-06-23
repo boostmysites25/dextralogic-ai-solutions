@@ -28,6 +28,7 @@ const LandingPage = lazy(() => import("./pages/LandingPage/LandingPage"));
 const Industries = lazy(() => import("./pages/Industries"));
 const Blogs = lazy(() => import("./pages/Blogs"));
 const BlogsDetail = lazy(() => import("./pages/BlogsDetail"));
+const ThankYou = lazy(() => import("./pages/ThankYou"));
 
 Aos.init({
   once: true,
@@ -54,6 +55,7 @@ function App() {
               <Route path="/industries" element={<Industries />} />
               <Route path="/blogs" element={<Blogs />} />
               <Route path="/blog-detail/:id" element={<BlogsDetail />} />
+              <Route path="/thank-you" element={<ThankYou />} />
 
               {/* Services Detail Routes with Layout */}
               <Route path="/services" element={<ServicePageLayout />}>

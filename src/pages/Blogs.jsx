@@ -6,10 +6,17 @@ import Footer from "../components/Website/Footer";
 import banner from "../assets/blogs-banner.webp";
 import CallToAction from "../components/CallToAction";
 import { blogs } from "../data/blogs";
+import SEO from "../components/SEO";
 
 const Blogs = () => {
   return (
     <div className="bg-secondary/5">
+      <SEO 
+        title="Blogs" 
+        description="Explore our latest insights on technology trends, AI innovations, digital transformation strategies, and industry best practices."
+        keywords="technology blog, AI insights, digital transformation, tech trends, industry insights, innovation blog, tech solutions"
+        canonicalUrl="https://dextralogic.com/blogs"
+      />
       <Header />
       <PageBanner title="Blogs" banner={banner} />
       <div className="py-[5rem] relative text-primary_text">

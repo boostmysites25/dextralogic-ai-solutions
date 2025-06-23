@@ -26,26 +26,6 @@ const Form = () => {
       message: "",
     },
   });
-  //   const [dropdownOpen, setDropdownOpen] = useState(false);
-  //   const [selectedService, setSelectedService] = useState(allServices[0].title);
-  //   const dropdownRef = useRef(null);
-
-  //   useEffect(() => {
-  //     // Handler for clicking outside of the dropdown
-  //     const handleClickOutside = (event) => {
-  //       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-  //         setDropdownOpen(false); // Close the dropdown
-  //       }
-  //     };
-
-  //     // Add event listener
-  //     document.addEventListener("mousedown", handleClickOutside);
-
-  //     // Cleanup event listener on component unmount
-  //     return () => {
-  //       document.removeEventListener("mousedown", handleClickOutside);
-  //     };
-  //   }, []);
 
   // handle form submit click
   const handleFormSubmit = async (values) => {
@@ -61,9 +41,10 @@ const Form = () => {
       to: clientDetails.email,
       subject: values.subject,
       body: emailBody,
+      name:"Dextralogic AI Solutions",
     };
 
-    await fetch("https://smtp-api-tawny.vercel.app/send-email", {
+    await fetch("https://send-mail-redirect-boostmysites.vercel.app/send-email", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -77,7 +58,7 @@ const Form = () => {
         } else {
           toast.success("Email sent successfully");
           reset();
-        //   navigate("/thank-you");
+          navigate("/thank-you");
         }
       })
       .catch((error) => {

@@ -2,6 +2,7 @@ import React from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { allServices } from "../constants";
 import { createUrlParam } from "../utils/helper";
+import SEO from "../components/SEO";
 
 const ServiceDetails = () => {
   const { serviceName } = useParams();
@@ -12,8 +13,16 @@ const ServiceDetails = () => {
   if (!data) {
     <Navigate to="/services" />;
   }
+  
   return (
     <div className="flex flex-col gap-10 md:px-5">
+      <SEO 
+        title={data.title} 
+        description={data.detailsPageContent.firstPara.slice(0, 160) + '...'}
+        keywords={`${data.title}, technology services, Dextralogic services, ${data.keywords || ''}`}
+        canonicalUrl={`https://dextralogic.com/services/${serviceName}`}
+        ogImage={data.img1}
+      />
       <img
         data-aos="fade-up"
         src={data.img1}

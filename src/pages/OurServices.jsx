@@ -6,6 +6,7 @@ import GetInTouch from "../components/GetInTouch";
 import { allServices } from "../constants";
 import { Link } from "react-router-dom";
 import { createUrlParam } from "../utils/helper";
+import SEO from "../components/SEO";
 
 const PageBanner = lazy(() => import("../components/Website/PageBanner"));
 const WorkingProcess = lazy(() => import("../components/WorkingProcess"));
@@ -53,6 +54,12 @@ const OurServices = () => {
 
   return (
     <>
+      <SEO 
+        title="Our Services" 
+        description="Explore our comprehensive range of technology services including AI & ML, Web & Mobile Development, Blockchain & Web3, UI/UX Design, and Cloud Services."
+        keywords="AI services, machine learning, web development, mobile app development, blockchain services, web3 development, UI/UX design, cloud services, technology solutions"
+        canonicalUrl="https://dextralogic.com/services"
+      />
       <Header />
       <PageBanner 
         title={"Our Services"} 

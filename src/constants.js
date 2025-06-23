@@ -30,7 +30,7 @@ export { logo };
 // client details
 export const clientDetails = {
   phone: "917339597533",
-  email: "abc@xyz.com",
+  email: "contact@dextralogic.com",
   address: "3/14 Annai Parvathy Nagar, Thoraipakkam, chennai-600097",
 };
 

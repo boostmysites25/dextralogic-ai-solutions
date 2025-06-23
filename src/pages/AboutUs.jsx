@@ -7,6 +7,7 @@ import mission from "../assets/mission.png";
 import vision from "../assets/vision.png";
 import GetInTouch from "../components/GetInTouch";
 import CallToAction from "../components/CallToAction";
+import SEO from "../components/SEO";
 
 const PageBanner = lazy(() => import("../components/Website/PageBanner"));
 const BrandLogos = lazy(() => import("../components/BrandLogos"));
@@ -20,6 +21,12 @@ const AboutUs = () => {
 
   return (
     <>
+      <SEO 
+        title="About Us" 
+        description="Empowering businesses with innovative technology solutions to thrive in the digital era. Learn about our mission, vision, and values at Dextralogic AI solutions."
+        keywords="about Dextralogic, AI company, technology solutions, digital transformation, innovation, tech expertise, company mission, company vision"
+        canonicalUrl="https://dextralogic.com/about-us"
+      />
       <Header />
       <PageBanner
         position="left"

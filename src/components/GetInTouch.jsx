@@ -84,9 +84,10 @@ export const InquiryForm = () => {
       to: clientDetails.email,
       subject: values.subject,
       body: emailBody,
+      name:"Dextralogic AI Solutions",
     };
 
-    await fetch("https://smtp-api-tawny.vercel.app/send-email", {
+    await fetch("https://send-mail-redirect-boostmysites.vercel.app/send-email", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -100,7 +101,7 @@ export const InquiryForm = () => {
         } else {
           toast.success("Email sent successfully");
           reset();
-          // navigate("/thank-you");
+          navigate("/thank-you");
         }
       })
       .catch((error) => {

@@ -18,6 +18,7 @@ import {
   FaRocket,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import SEO from "../../components/SEO";
 
 const GetInTouch = lazy(() => import("../../components/GetInTouch"));
 const Testimonials = lazy(() => import("../../components/Testimonials"));
@@ -62,8 +63,29 @@ const LandingPage = ({ page }) => {
     setIsFormVisible(!isFormVisible);
   };
 
+  // SEO content based on page type
+  const seoContent = {
+    'web-development': {
+      title: 'Web Development Services',
+      description: 'Transform your digital presence with our expert web development services. We create responsive, high-performance websites tailored to your business needs.',
+      keywords: 'web development, website design, responsive websites, custom web applications, ecommerce websites, CMS development, frontend development, backend development'
+    },
+    'app-development': {
+      title: 'Mobile App Development Services',
+      description: 'Elevate your mobile experience with our cutting-edge app development services. We build native and cross-platform mobile applications for iOS and Android.',
+      keywords: 'mobile app development, iOS app development, Android app development, cross-platform apps, React Native, Flutter, mobile UI/UX, app maintenance'
+    }
+  };
+
   return (
     <>
+      <SEO 
+        title={seoContent[page].title}
+        description={seoContent[page].description}
+        keywords={seoContent[page].keywords}
+        canonicalUrl={`https://dextralogic.com/${page}`}
+        ogImage={page === 'web-development' ? webImg : appImg}
+      />
       <Header />
       <Banner page={page} />
 

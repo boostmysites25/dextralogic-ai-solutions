@@ -10,6 +10,8 @@ import CallToAction from "../components/CallToAction";
 import { FaArrowRight, FaLightbulb, FaChartLine, FaCode } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import SEO from "../components/SEO";
+import { OrganizationStructuredData } from "../components/StructuredData";
 
 const Banner = lazy(() => import("../components/Website/Banner"));
 const TrustWorthySection = lazy(() =>
@@ -51,6 +53,12 @@ const Home = () => {
 
   return (
     <>
+      <SEO 
+        title="Home" 
+        description="Dextralogic AI solutions - Pioneering intelligent solutions for tomorrow's challenges. We specialize in AI & ML, Web & Mobile Development, Blockchain & Web3, UI/UX Design, and Cloud Services."
+        keywords="AI solutions, machine learning, web development, mobile app development, blockchain, web3, UI/UX design, cloud services, digital transformation"
+        canonicalUrl="https://dextralogic.com/"
+      />
       <Header />
       <Banner />
 

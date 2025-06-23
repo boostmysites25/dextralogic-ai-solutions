@@ -4,6 +4,7 @@ import Footer from "../components/Website/Footer";
 import map from "../assets/map.webp";
 import { clientDetails } from "../constants";
 import { FaEnvelope, FaPhoneAlt, FaCheck } from "react-icons/fa";
+import SEO from "../components/SEO";
 import {
   FaMapLocationDot,
   FaRegClock,
@@ -77,6 +78,12 @@ const ContactUs = () => {
 
   return (
     <>
+      <SEO 
+        title="Contact Us" 
+        description="Get in touch with Dextralogic AI solutions. Let's start a conversation about transforming your business with technology."
+        keywords="contact Dextralogic, technology consultation, AI solutions contact, tech support, business inquiry, project consultation"
+        canonicalUrl="https://dextralogic.com/contact-us"
+      />
       <Header />
       <PageBanner
         title={"Contact Us"}
