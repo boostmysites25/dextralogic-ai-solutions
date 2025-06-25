@@ -36,9 +36,9 @@ export const clientDetails = {
   address: "3/14 Annai Parvathy Nagar, Thoraipakkam, chennai-600097",
   instagram: "https://www.instagram.com/d_logic_ai?igsh=YjU0d2NkcTRlOHBs",
   twitter: "https://x.com/dextralogic_ai?t=sF01HiFBv3cqfgcxyGMOHQ&s=08",
-  linkedin: "",
-  youtube: "",
-  facebook: "",
+  linkedin: "https://www.linkedin.com/company/dextralogic-ai-solutions/",
+  youtube: "https://www.youtube.com/@dlogic23",
+  facebook: "https://www.facebook.com/share/1CVJazX4s2/",
 };
 
 // landing page header links
