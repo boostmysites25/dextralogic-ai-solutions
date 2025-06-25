@@ -31,7 +31,14 @@ export { logo };
 export const clientDetails = {
   phone: "917339597533",
   email: "contact@dextralogic.com",
+  emailForCareers: "carreers@dextralogic.com",
+  emailForTechSupport: "techsupport@dextralogic.com",
   address: "3/14 Annai Parvathy Nagar, Thoraipakkam, chennai-600097",
+  instagram: "https://www.instagram.com/d_logic_ai?igsh=YjU0d2NkcTRlOHBs",
+  twitter: "https://x.com/dextralogic_ai?t=sF01HiFBv3cqfgcxyGMOHQ&s=08",
+  linkedin: "",
+  youtube: "",
+  facebook: "",
 };
 
 // landing page header links
@@ -230,8 +237,8 @@ export const allServices = [
   },
   {
     id: 3,
-    img1: require("./assets/services-details/cloud-computing-1.webp"),
-    img2: require("./assets/services-details/cloud-computing-2.webp"),
+    img1: require("./assets/services-details/blockchain1.webp"),
+    img2: require("./assets/services-details/blockchain2.webp"),
     title: "Blockchain & Web3 Solutions",
     smallPara:
       "Embrace the future of decentralized technology with our Blockchain and Web3 services. Blockchain technology offers unprecedented levels of security, transparency, and efficiency for businesses across various industries. Our solutions help you leverage this transformative technology to streamline operations, enhance trust, and create new business models.\n\nFrom smart contracts to decentralized applications (DApps), we provide end-to-end blockchain development services tailored to your specific needs. Our team stays at the forefront of Web3 innovations to deliver cutting-edge solutions that give you a competitive edge.",

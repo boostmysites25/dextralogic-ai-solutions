@@ -3,13 +3,12 @@ import Header from "../components/Website/Header";
 import Footer from "../components/Website/Footer";
 import map from "../assets/map.webp";
 import { clientDetails } from "../constants";
-import { FaEnvelope, FaPhoneAlt, FaCheck } from "react-icons/fa";
+import { FaEnvelope, FaPhoneAlt, FaCheck, FaYoutube } from "react-icons/fa";
 import SEO from "../components/SEO";
 import {
   FaMapLocationDot,
   FaRegClock,
   FaLinkedin,
-  FaTwitter,
   FaFacebook,
   FaInstagram,
   FaHeadset,
@@ -19,6 +18,7 @@ import {
 import { Link } from "react-router-dom";
 import banner from "../assets/contact-us-banner.webp";
 import { InquiryForm } from "../components/GetInTouch";
+import { BsTwitterX } from "react-icons/bs";
 
 const PageBanner = lazy(() => import("../components/Website/PageBanner"));
 
@@ -32,6 +32,7 @@ const ContactUs = () => {
       description:
         "For general questions about our services and how we can help your business.",
       icon: <FaComments />,
+      email: clientDetails.email,
     },
     {
       id: "support",
@@ -39,6 +40,7 @@ const ContactUs = () => {
       description:
         "Need help with an existing project? Our support team is ready to assist you.",
       icon: <FaHeadset />,
+      email: clientDetails.emailForTechSupport,
     },
     {
       id: "careers",
@@ -46,6 +48,7 @@ const ContactUs = () => {
       description:
         "Interested in joining our team? Mention 'Job Application' in your message.",
       icon: <FaUserTie />,
+      email: clientDetails.emailForCareers,
     },
   ];
 
@@ -78,8 +81,8 @@ const ContactUs = () => {
 
   return (
     <>
-      <SEO 
-        title="Contact Us" 
+      <SEO
+        title="Contact Us"
         description="Get in touch with Dextralogic AI solutions. Let's start a conversation about transforming your business with technology."
         keywords="contact Dextralogic, technology consultation, AI solutions contact, tech support, business inquiry, project consultation"
         canonicalUrl="https://dextralogic.com/contact-us"
@@ -161,10 +164,10 @@ const ContactUs = () => {
                       <div>
                         <p className="text-sm text-gray-500">Email</p>
                         <a
-                          href={`mailto:${clientDetails.email}`}
+                          href={`mailto:${activeCategory.email}`}
                           className="font-medium hover:text-primary transition-colors"
                         >
-                          {clientDetails.email}
+                          {activeCategory.email}
                         </a>
                       </div>
                     </div>
@@ -179,7 +182,7 @@ const ContactUs = () => {
                           href={`tel:${clientDetails.phone}`}
                           className="font-medium hover:text-primary transition-colors"
                         >
-                          {clientDetails.phone}
+                          +{clientDetails.phone}
                         </a>
                       </div>
                     </div>
@@ -222,22 +225,39 @@ const ContactUs = () => {
                     </p>
                     <div className="flex gap-3">
                       <Link
-                        to=""
+                        to={clientDetails.linkedin}
+                        target="_blank"
                         className="w-9 h-9 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors"
                       >
                         <FaLinkedin />
                       </Link>
                       <Link
-                        to=""
+                        to={clientDetails.facebook}
+                        target="_blank"
                         className="w-9 h-9 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors"
                       >
                         <FaFacebook />
                       </Link>
                       <Link
-                        to=""
+                        to={clientDetails.instagram}
+                        target="_blank"
                         className="w-9 h-9 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors"
                       >
                         <FaInstagram />
+                      </Link>
+                      <Link
+                        to={clientDetails.twitter}
+                        target="_blank"
+                        className="w-9 h-9 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors"
+                      >
+                        <BsTwitterX />
+                      </Link>
+                      <Link
+                        to={clientDetails.youtube}
+                        target="_blank"
+                        className="w-9 h-9 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors"
+                      >
+                        <FaYoutube />
                       </Link>
                     </div>
                   </div>

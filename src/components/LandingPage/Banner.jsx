@@ -49,12 +49,12 @@ const Banner = ({ page }) => {
           controls={false}
           style={{ objectFit: "cover" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
       </div>
 
       {/* Content Container */}
       <div className="absolute inset-0 flex items-center">
-        <div className="wrapper grid md:grid-cols-[1fr_auto] items-center gap-10">
+        <div className="wrapper flex items-center gap-10">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -63,9 +63,9 @@ const Banner = ({ page }) => {
               y: isVideoLoaded ? 0 : 30,
             }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col items-start justify-center z-10"
+            className="flex flex-col items-center text-center justify-center z-10"
           >
-            <span className="px-4 py-1 bg-primary/20 text-primary rounded-full text-sm font-medium mb-6">
+            <span className="px-4 py-1 bg-primary/20 text-primary rounded-full text-sm font-bold mb-6">
               {isWebDevelopment
                 ? "Web Development Solutions"
                 : "Mobile App Development"}
@@ -85,7 +85,7 @@ const Banner = ({ page }) => {
               )}
             </h1>
 
-            <p className="text-lg text-gray-200 mb-8">
+            <p className="text-lg text-white max-w-7xl mx-auto mb-8">
               {isWebDevelopment
                 ? "Create a powerful online presence with our custom web development services. We build responsive, high-performance websites that deliver exceptional user experiences and drive business results."
                 : "Transform your business with our custom mobile app development services. We create intuitive, feature-rich applications that engage users and provide seamless experiences across all devices."}
@@ -114,7 +114,8 @@ const Banner = ({ page }) => {
                 to="services"
                 smooth={true}
                 duration={800}
-                className="px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-full transition-colors flex items-center gap-2 cursor-pointer"
+                offset={-80}
+                className="px-6 py-3 primary-btn"
               >
                 Explore Our Services
               </Link>
@@ -130,7 +131,7 @@ const Banner = ({ page }) => {
           </motion.div>
 
           {/* Robot Image */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{
               opacity: isVideoLoaded ? 1 : 0,
@@ -154,7 +155,7 @@ const Banner = ({ page }) => {
               alt="AI Robot"
             />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20rem] h-[20rem] bg-primary/20 rounded-full blur-3xl -z-10"></div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
 

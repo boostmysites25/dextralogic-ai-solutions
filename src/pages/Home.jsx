@@ -11,7 +11,6 @@ import { FaArrowRight, FaLightbulb, FaChartLine, FaCode } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
-import { OrganizationStructuredData } from "../components/StructuredData";
 
 const Banner = lazy(() => import("../components/Website/Banner"));
 const TrustWorthySection = lazy(() =>

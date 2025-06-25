@@ -10,14 +10,7 @@ import Form from "../../components/Form";
 import webImg from "../../assets/landingpage-services-imgs/web-development.webp";
 import appImg from "../../assets/landingpage-services-imgs/app-development.webp";
 import { motion } from "framer-motion";
-import {
-  FaArrowRight,
-  FaCheck,
-  FaCode,
-  FaMobileAlt,
-  FaRocket,
-} from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaArrowRight, FaCheck } from "react-icons/fa";
 import SEO from "../../components/SEO";
 
 const GetInTouch = lazy(() => import("../../components/GetInTouch"));
@@ -65,26 +58,30 @@ const LandingPage = ({ page }) => {
 
   // SEO content based on page type
   const seoContent = {
-    'web-development': {
-      title: 'Web Development Services',
-      description: 'Transform your digital presence with our expert web development services. We create responsive, high-performance websites tailored to your business needs.',
-      keywords: 'web development, website design, responsive websites, custom web applications, ecommerce websites, CMS development, frontend development, backend development'
+    "web-development": {
+      title: "Web Development Services",
+      description:
+        "Transform your digital presence with our expert web development services. We create responsive, high-performance websites tailored to your business needs.",
+      keywords:
+        "web development, website design, responsive websites, custom web applications, ecommerce websites, CMS development, frontend development, backend development",
     },
-    'app-development': {
-      title: 'Mobile App Development Services',
-      description: 'Elevate your mobile experience with our cutting-edge app development services. We build native and cross-platform mobile applications for iOS and Android.',
-      keywords: 'mobile app development, iOS app development, Android app development, cross-platform apps, React Native, Flutter, mobile UI/UX, app maintenance'
-    }
+    "app-development": {
+      title: "Mobile App Development Services",
+      description:
+        "Elevate your mobile experience with our cutting-edge app development services. We build native and cross-platform mobile applications for iOS and Android.",
+      keywords:
+        "mobile app development, iOS app development, Android app development, cross-platform apps, React Native, Flutter, mobile UI/UX, app maintenance",
+    },
   };
 
   return (
     <>
-      <SEO 
+      <SEO
         title={seoContent[page].title}
         description={seoContent[page].description}
         keywords={seoContent[page].keywords}
         canonicalUrl={`https://dextralogic.com/${page}`}
-        ogImage={page === 'web-development' ? webImg : appImg}
+        ogImage={page === "web-development" ? webImg : appImg}
       />
       <Header />
       <Banner page={page} />
@@ -130,10 +127,10 @@ const LandingPage = ({ page }) => {
             >
               <img
                 src={isWebDevelopment ? webImg : appImg}
-                className="w-full aspect-video h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover"
                 alt={isWebDevelopment ? "Web Development" : "App Development"}
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-black/70 flex items-center justify-center">
+              <div className="relative z-10 h-full bg-gradient-to-r from-primary/80 to-black/70 flex items-center justify-center">
                 <div className="text-white space-y-6 text-center p-8">
                   <h3 className="text-3xl md:text-4xl font-bold">
                     {isWebDevelopment

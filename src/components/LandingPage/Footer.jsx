@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 import { GrFacebookOption } from "react-icons/gr";
 import { clientDetails, logo } from "../../constants";
+import { BsTwitterX } from "react-icons/bs";
 
 const Footer = () => {
   return (
@@ -30,14 +31,20 @@ const Footer = () => {
         </div>
         <div className="">
           <div className="flex mt-3 gap-5 justify-start">
-            <Link>
+            <Link to={clientDetails.linkedin} target="_blank">
               <FaLinkedinIn className="text-2xl" />
             </Link>
-            <Link>
+            <Link to={clientDetails.instagram} target="_blank">
               <AiFillInstagram className="text-2xl" />
             </Link>
-            <Link>
+            <Link to={clientDetails.facebook} target="_blank">
               <GrFacebookOption className="text-2xl" />
+            </Link>
+            <Link to={clientDetails.youtube} target="_blank">
+              <FaYoutube className="text-2xl" />
+            </Link>
+            <Link to={clientDetails.twitter} target="_blank">
+              <BsTwitterX className="text-xl" />
             </Link>
           </div>
         </div>
