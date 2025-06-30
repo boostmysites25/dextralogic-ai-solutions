@@ -15,6 +15,8 @@ import SpinnerContextProvider, {
   LoadingSpinnerContext,
 } from "./components/SpinnerContext";
 import { Toaster } from "react-hot-toast";
+import { WebsiteStructuredData, OrganizationStructuredData } from "./components/StructuredData";
+import { HelmetProvider } from 'react-helmet-async';
 
 const Home = lazy(() => import("./pages/Home"));
 const OurServices = lazy(() => import("./pages/OurServices"));
@@ -29,6 +31,7 @@ const Industries = lazy(() => import("./pages/Industries"));
 const Blogs = lazy(() => import("./pages/Blogs"));
 const BlogsDetail = lazy(() => import("./pages/BlogsDetail"));
 const ThankYou = lazy(() => import("./pages/ThankYou"));
+const Breadcrumbs = lazy(() => import("./components/Breadcrumbs"));
 
 Aos.init({
   once: true,
@@ -38,44 +41,52 @@ Aos.init({
 
 function App() {
   return (
-    <BrowserRouter>
-      <SpinnerContextProvider>
-        <LoadingSpinnerContext />
-        <Suspense fallback={<LoadingSpinner />}>
-          <ScrollToTop />
-          <Toaster position="top-center" />
-          <NormalizeSlash>
-            <WhatsAppIcon />
-            <Routes>
-              <Route path="*" element={<Navigate to="/" replace />} />
-              <Route path="/" element={<Home />} />
-              <Route path="/contact-us" element={<ContactUs />} />
-              <Route path="/about-us" element={<AboutUs />} />
-              <Route path="/services" element={<OurServices />} />
-              <Route path="/industries" element={<Industries />} />
-              <Route path="/blogs" element={<Blogs />} />
-              <Route path="/blog-detail/:id" element={<BlogsDetail />} />
-              <Route path="/thank-you" element={<ThankYou />} />
+    <HelmetProvider>
+      <BrowserRouter>
+        <SpinnerContextProvider>
+          <LoadingSpinnerContext />
+          <Suspense fallback={<LoadingSpinner />}>
+            <ScrollToTop />
+            <Toaster position="top-center" />
+            {/* Global structured data for the website */}
+            <WebsiteStructuredData />
+            <OrganizationStructuredData />
+            <NormalizeSlash>
+              <WhatsAppIcon />
+              <Suspense fallback={null}>
+                <Breadcrumbs />
+              </Suspense>
+              <Routes>
+                <Route path="*" element={<Navigate to="/" replace />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/contact-us" element={<ContactUs />} />
+                <Route path="/about-us" element={<AboutUs />} />
+                <Route path="/services" element={<OurServices />} />
+                <Route path="/industries" element={<Industries />} />
+                <Route path="/blogs" element={<Blogs />} />
+                <Route path="/blog-detail/:id" element={<BlogsDetail />} />
+                <Route path="/thank-you" element={<ThankYou />} />
 
-              {/* Services Detail Routes with Layout */}
-              <Route path="/services" element={<ServicePageLayout />}>
-                <Route path=":serviceName" element={<ServiceDetails />} />
-              </Route>
+                {/* Services Detail Routes with Layout */}
+                <Route path="/services" element={<ServicePageLayout />}>
+                  <Route path=":serviceName" element={<ServiceDetails />} />
+                </Route>
 
-              {/* Generic Routes */}
-              <Route
-                path="/web-development"
-                element={<LandingPage page={"web-development"} />}
-              />
-              <Route
-                path="/app-development"
-                element={<LandingPage page={"app-development"} />}
-              />
-            </Routes>
-          </NormalizeSlash>
-        </Suspense>
-      </SpinnerContextProvider>
-    </BrowserRouter>
+                {/* Generic Routes */}
+                <Route
+                  path="/web-development"
+                  element={<LandingPage page={"web-development"} />}
+                />
+                <Route
+                  path="/app-development"
+                  element={<LandingPage page={"app-development"} />}
+                />
+              </Routes>
+            </NormalizeSlash>
+          </Suspense>
+        </SpinnerContextProvider>
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }
 

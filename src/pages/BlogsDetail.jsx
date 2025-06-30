@@ -7,6 +7,7 @@ import { Navigate, useParams } from "react-router-dom";
 import GetInTouch from "../components/GetInTouch";
 import CallToAction from "../components/CallToAction";
 import SEO from "../components/SEO";
+import { ArticleStructuredData } from "../components/StructuredData";
 
 const BlogsDetail = () => {
   const { id } = useParams();
@@ -25,15 +26,40 @@ const BlogsDetail = () => {
     return textContent.slice(0, 160) + '...';
   };
   
+  // Format date for SEO purposes
+  const formatDate = (dateString) => {
+    if (!dateString) return new Date().toISOString();
+    const date = new Date(dateString);
+    return date.toISOString();
+  };
+  
+  // Get meta description
+  const metaDescription = blog.excerpt || getMetaDescription();
+  
   return (
     <>
       <SEO 
         title={blog.title} 
-        description={blog.excerpt || getMetaDescription()}
-        keywords={`${blog.title}, ${blog.category}, technology blog, AI insights, digital transformation`}
+        description={metaDescription}
+        keywords={`${blog.title}, ${blog.category}, technology blog, AI insights, digital transformation, ${blog.tags ? blog.tags.join(', ') : ''}`}
         canonicalUrl={`https://dextralogic.com/blog-detail/${blog.id}`}
         ogImage={blog.image}
         ogType="article"
+        author={blog.author || "Dextralogic Team"}
+        publishedDate={formatDate(blog.date)}
+        modifiedDate={formatDate(blog.lastUpdated || blog.date)}
+      />
+      
+      {/* Add structured data for the article */}
+      <ArticleStructuredData 
+        title={blog.title}
+        description={metaDescription}
+        url={`https://dextralogic.com/blog-detail/${blog.id}`}
+        image={blog.image}
+        datePublished={formatDate(blog.date)}
+        dateModified={formatDate(blog.lastUpdated || blog.date)}
+        authorName={blog.author || "Dextralogic Team"}
+        category={blog.category}
       />
       <Header />
       <div

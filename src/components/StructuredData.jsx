@@ -29,7 +29,20 @@ export const OrganizationStructuredData = () => {
       "https://www.twitter.com/dextralogic",
       "https://www.linkedin.com/company/dextralogic",
       "https://www.instagram.com/dextralogic"
-    ]
+    ],
+    "foundingDate": "2020",
+    "founders": [
+      {
+        "@type": "Person",
+        "name": "Dextralogic Founder"
+      }
+    ],
+    "numberOfEmployees": {
+      "@type": "QuantitativeValue",
+      "value": "30+"
+    },
+    "slogan": "Pioneering intelligent solutions for tomorrow's challenges",
+    "areaServed": "Worldwide"
   };
 
   return (
@@ -42,7 +55,13 @@ export const OrganizationStructuredData = () => {
 };
 
 // Service structured data
-export const ServiceStructuredData = ({ name, description, url, image }) => {
+export const ServiceStructuredData = ({ name, description, url, image, category }) => {
+  // Ensure URL is absolute
+  const absoluteUrl = url.startsWith('http') ? url : `https://dextralogic.com${url.startsWith('/') ? '' : '/'}${url}`;
+  
+  // Ensure image URL is absolute
+  const absoluteImage = image.startsWith('http') ? image : `https://dextralogic.com${image.startsWith('/') ? '' : '/'}${image}`;
+  
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -53,8 +72,20 @@ export const ServiceStructuredData = ({ name, description, url, image }) => {
       "name": "Dextralogic AI solutions",
       "url": "https://dextralogic.com"
     },
-    "url": url,
-    "image": image
+    "url": absoluteUrl,
+    "image": absoluteImage,
+    "category": category || "Technology Services",
+    "areaServed": "Worldwide",
+    "serviceType": name,
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "description": "Contact for pricing details"
+      }
+    }
   };
 
   return (
@@ -67,13 +98,19 @@ export const ServiceStructuredData = ({ name, description, url, image }) => {
 };
 
 // Article structured data for blog posts
-export const ArticleStructuredData = ({ title, description, url, image, datePublished, dateModified, authorName }) => {
+export const ArticleStructuredData = ({ title, description, url, image, datePublished, dateModified, authorName, category }) => {
+  // Ensure URL is absolute
+  const absoluteUrl = url.startsWith('http') ? url : `https://dextralogic.com${url.startsWith('/') ? '' : '/'}${url}`;
+  
+  // Ensure image URL is absolute
+  const absoluteImage = image.startsWith('http') ? image : `https://dextralogic.com${image.startsWith('/') ? '' : '/'}${image}`;
+  
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": title,
     "description": description,
-    "image": image,
+    "image": absoluteImage,
     "datePublished": datePublished || new Date().toISOString(),
     "dateModified": dateModified || new Date().toISOString(),
     "author": {
@@ -90,8 +127,11 @@ export const ArticleStructuredData = ({ title, description, url, image, datePubl
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": url
-    }
+      "@id": absoluteUrl
+    },
+    "articleSection": category || "Technology",
+    "wordCount": description.split(' ').length,
+    "url": absoluteUrl
   };
 
   return (
@@ -127,9 +167,60 @@ export const FAQStructuredData = ({ questions }) => {
   );
 };
 
+// BreadcrumbList structured data
+export const BreadcrumbStructuredData = ({ items }) => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": items.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.name,
+      "item": item.url.startsWith('http') ? item.url : `https://dextralogic.com${item.url.startsWith('/') ? '' : '/'}${item.url}`
+    }))
+  };
+
+  return (
+    <Helmet>
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
+    </Helmet>
+  );
+};
+
+// WebSite structured data
+export const WebsiteStructuredData = () => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Dextralogic AI solutions",
+    "url": "https://dextralogic.com",
+    "description": "From Concept to Completion, We Provide a Full Spectrum of Technology Services Tailored to Your Needs.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://dextralogic.com/search?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  return (
+    <Helmet>
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
+    </Helmet>
+  );
+};
+
 export default {
   OrganizationStructuredData,
   ServiceStructuredData,
   ArticleStructuredData,
-  FAQStructuredData
+  FAQStructuredData,
+  BreadcrumbStructuredData,
+  WebsiteStructuredData
 };

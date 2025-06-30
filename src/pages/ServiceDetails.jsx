@@ -3,6 +3,7 @@ import { Navigate, useParams } from "react-router-dom";
 import { allServices } from "../constants";
 import { createUrlParam } from "../utils/helper";
 import SEO from "../components/SEO";
+import { ServiceStructuredData } from "../components/StructuredData";
 
 const ServiceDetails = () => {
   const { serviceName } = useParams();
@@ -14,14 +15,29 @@ const ServiceDetails = () => {
     <Navigate to="/services" />;
   }
   
+  // Create a more comprehensive description
+  const metaDescription = data.detailsPageContent.firstPara.slice(0, 160) + '...';
+  
+  // Create a more comprehensive keywords list
+  const keywordsList = `${data.title}, technology services, Dextralogic services, ${data.keywords || ''}, professional services, tech solutions, digital transformation`;
+  
   return (
     <div className="flex flex-col gap-10 md:px-5">
       <SEO 
         title={data.title} 
-        description={data.detailsPageContent.firstPara.slice(0, 160) + '...'}
-        keywords={`${data.title}, technology services, Dextralogic services, ${data.keywords || ''}`}
+        description={metaDescription}
+        keywords={keywordsList}
         canonicalUrl={`https://dextralogic.com/services/${serviceName}`}
         ogImage={data.img1}
+      />
+      
+      {/* Add structured data for the service */}
+      <ServiceStructuredData 
+        name={data.title}
+        description={metaDescription}
+        url={`https://dextralogic.com/services/${serviceName}`}
+        image={data.img1}
+        category={data.category || "Technology Services"}
       />
       <img
         data-aos="fade-up"

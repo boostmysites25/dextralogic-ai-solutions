@@ -1,9 +1,19 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
+Disallow: /thank-you
 
 # Sitemap location
 Sitemap: https://dextralogic.com/sitemap.xml
 
-# Disallow specific paths if needed
-# Disallow: /private/
+# Allow Google Image bot to index images
+User-agent: Googlebot-Image
+Allow: /
+
+# Allow Google Mobile bot
+User-agent: Googlebot-Mobile
+Allow: /
+
+# Allow Bing bot
+User-agent: Bingbot
+Allow: /
