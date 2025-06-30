@@ -21,7 +21,7 @@ const BlogsDetail = () => {
   const getMetaDescription = () => {
     // Try to extract text content from HTML
     const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = blog.content.slice(0, 500);
+    tempDiv.innerHTML = blog.contentHtml.slice(0, 500);
     const textContent = tempDiv.textContent || tempDiv.innerText || '';
     return textContent.slice(0, 160) + '...';
   };
