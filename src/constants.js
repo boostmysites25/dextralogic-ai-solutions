@@ -30,12 +30,13 @@ export { logo };
 // client details
 export const clientDetails = {
   phone: "917339597533",
+  whatsapp:"https://api.whatsapp.com/send/?phone=917339002329",
   email: "contact@dextralogic.com",
   emailForCareers: "carreers@dextralogic.com",
   emailForTechSupport: "techsupport@dextralogic.com",
   address: "3/14 Annai Parvathy Nagar, Thoraipakkam, chennai-600097",
   instagram: "https://www.instagram.com/d_logic_ai?igsh=YjU0d2NkcTRlOHBs",
-  twitter: "https://x.com/dextralogic_ai?t=sF01HiFBv3cqfgcxyGMOHQ&s=08",
+  twitter: "https://x.com/dlogic_ai?t=5jeXHiKuXlSNVDc4FoP8_g&s=09",
   linkedin: "https://www.linkedin.com/company/dextralogic-ai-solutions/",
   youtube: "https://www.youtube.com/@dlogic23",
   facebook: "https://www.facebook.com/share/1CVJazX4s2/",
