@@ -29,7 +29,7 @@ export { logo };
 
 // client details
 export const clientDetails = {
-  phone: "917339597533",
+  phone: "917339002329",
   whatsapp:"https://api.whatsapp.com/send/?phone=917339002329",
   email: "contact@dextralogic.com",
   emailForCareers: "carreers@dextralogic.com",
