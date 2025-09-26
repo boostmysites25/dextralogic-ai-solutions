@@ -9,7 +9,7 @@ export const OrganizationStructuredData = () => {
     "name": "Dextralogic AI solutions",
     "url": "https://dextralogic.com",
     "logo": "https://dextralogic.com/logo.png",
-    "description": "From Concept to Completion, We Provide a Full Spectrum of Technology Services Tailored to Your Needs.",
+    "description": "Leading AI solutions provider specializing in machine learning, web development, mobile apps, blockchain, and cloud services. Transform your business with cutting-edge AI voice agents and intelligent automation.",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Your Street Address",
@@ -42,7 +42,55 @@ export const OrganizationStructuredData = () => {
       "value": "30+"
     },
     "slogan": "Pioneering intelligent solutions for tomorrow's challenges",
-    "areaServed": "Worldwide"
+    "areaServed": "Worldwide",
+    "knowsAbout": [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "AI Voice Agents",
+      "Web Development",
+      "Mobile App Development",
+      "Blockchain Technology",
+      "Web3 Solutions",
+      "UI/UX Design",
+      "Cloud Services",
+      "Digital Transformation",
+      "Customer Experience",
+      "Automation"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "AI & Technology Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AI & ML Solutions"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Web Development"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Mobile App Development"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AI Voice Agents"
+          }
+        }
+      ]
+    }
   };
 
   return (
@@ -196,7 +244,7 @@ export const WebsiteStructuredData = () => {
     "@type": "WebSite",
     "name": "Dextralogic AI solutions",
     "url": "https://dextralogic.com",
-    "description": "From Concept to Completion, We Provide a Full Spectrum of Technology Services Tailored to Your Needs.",
+    "description": "Leading AI solutions provider specializing in machine learning, web development, mobile apps, blockchain, and cloud services. Transform your business with cutting-edge AI voice agents and intelligent automation.",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {

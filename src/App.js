@@ -17,6 +17,9 @@ import SpinnerContextProvider, {
 import { Toaster } from "react-hot-toast";
 import { WebsiteStructuredData, OrganizationStructuredData } from "./components/StructuredData";
 import { HelmetProvider } from 'react-helmet-async';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import ErrorBoundary from './components/ErrorBoundary';
 
 const Home = lazy(() => import("./pages/Home"));
 const OurServices = lazy(() => import("./pages/OurServices"));
@@ -39,54 +42,69 @@ Aos.init({
   offset: -50,
 });
 
+// Create a client
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
+
 function App() {
   return (
-    <HelmetProvider>
-      <BrowserRouter>
-        <SpinnerContextProvider>
-          <LoadingSpinnerContext />
-          <Suspense fallback={<LoadingSpinner />}>
-            <ScrollToTop />
-            <Toaster position="top-center" />
-            {/* Global structured data for the website */}
-            <WebsiteStructuredData />
-            <OrganizationStructuredData />
-            <NormalizeSlash>
-              <WhatsAppIcon />
-              <Suspense fallback={null}>
-                <Breadcrumbs />
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <HelmetProvider>
+          <BrowserRouter>
+            <SpinnerContextProvider>
+              <LoadingSpinnerContext />
+              <Suspense fallback={<LoadingSpinner />}>
+                <ScrollToTop />
+                <Toaster position="top-center" />
+                {/* Global structured data for the website */}
+                <WebsiteStructuredData />
+                <OrganizationStructuredData />
+                <NormalizeSlash>
+                  <WhatsAppIcon />
+                  <Suspense fallback={null}>
+                    <Breadcrumbs />
+                  </Suspense>
+                  <Routes>
+                    <Route path="*" element={<Navigate to="/" replace />} />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/contact-us" element={<ContactUs />} />
+                    <Route path="/about-us" element={<AboutUs />} />
+                    <Route path="/services" element={<OurServices />} />
+                    <Route path="/industries" element={<Industries />} />
+                    <Route path="/blogs" element={<Blogs />} />
+                    <Route path="/blog/:slug" element={<BlogsDetail />} />
+                    <Route path="/thank-you" element={<ThankYou />} />
+
+                    {/* Services Detail Routes with Layout */}
+                    <Route path="/services" element={<ServicePageLayout />}>
+                      <Route path=":serviceName" element={<ServiceDetails />} />
+                    </Route>
+
+                    {/* Generic Routes */}
+                    <Route
+                      path="/web-development"
+                      element={<LandingPage page={"web-development"} />}
+                    />
+                    <Route
+                      path="/app-development"
+                      element={<LandingPage page={"app-development"} />}
+                    />
+                  </Routes>
+                </NormalizeSlash>
               </Suspense>
-              <Routes>
-                <Route path="*" element={<Navigate to="/" replace />} />
-                <Route path="/" element={<Home />} />
-                <Route path="/contact-us" element={<ContactUs />} />
-                <Route path="/about-us" element={<AboutUs />} />
-                <Route path="/services" element={<OurServices />} />
-                <Route path="/industries" element={<Industries />} />
-                <Route path="/blogs" element={<Blogs />} />
-                <Route path="/blog-detail/:id" element={<BlogsDetail />} />
-                <Route path="/thank-you" element={<ThankYou />} />
-
-                {/* Services Detail Routes with Layout */}
-                <Route path="/services" element={<ServicePageLayout />}>
-                  <Route path=":serviceName" element={<ServiceDetails />} />
-                </Route>
-
-                {/* Generic Routes */}
-                <Route
-                  path="/web-development"
-                  element={<LandingPage page={"web-development"} />}
-                />
-                <Route
-                  path="/app-development"
-                  element={<LandingPage page={"app-development"} />}
-                />
-              </Routes>
-            </NormalizeSlash>
-          </Suspense>
-        </SpinnerContextProvider>
-      </BrowserRouter>
-    </HelmetProvider>
+            </SpinnerContextProvider>
+          </BrowserRouter>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </HelmetProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 }
 

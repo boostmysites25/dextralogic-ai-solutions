@@ -35,9 +35,9 @@
   <!-- Blogs -->
   <url>
     <loc>https://dextralogic.com/blogs</loc>
-    <lastmod>2024-06-01</lastmod>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   
   <!-- Contact Us -->
@@ -114,39 +114,5 @@
     <priority>0.7</priority>
   </url>
   
-  <!-- Blog Detail Pages -->
-  <url>
-    <loc>https://dextralogic.com/blog-detail/1</loc>
-    <lastmod>2024-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://dextralogic.com/blog-detail/2</loc>
-    <lastmod>2024-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://dextralogic.com/blog-detail/3</loc>
-    <lastmod>2024-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://dextralogic.com/blog-detail/4</loc>
-    <lastmod>2024-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://dextralogic.com/blog-detail/5</loc>
-    <lastmod>2024-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+  <!-- Note: Blog detail pages are now dynamic and will be generated based on API data -->
 </urlset>

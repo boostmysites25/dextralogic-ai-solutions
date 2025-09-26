@@ -53,9 +53,9 @@ const Home = () => {
   return (
     <>
       <SEO 
-        title="Home" 
-        description="Dextralogic AI solutions - Pioneering intelligent solutions for tomorrow's challenges. We specialize in AI & ML, Web & Mobile Development, Blockchain & Web3, UI/UX Design, and Cloud Services."
-        keywords="AI solutions, machine learning, web development, mobile app development, blockchain, web3, UI/UX design, cloud services, digital transformation"
+        title="AI Solutions & Digital Transformation | Dextralogic" 
+        description="Leading AI solutions provider specializing in machine learning, web development, mobile apps, blockchain, and cloud services. Transform your business with cutting-edge technology and expert AI implementation."
+        keywords="AI solutions, machine learning, artificial intelligence, web development, mobile app development, blockchain, web3, UI/UX design, cloud services, digital transformation, AI voice agents, customer experience, predictive analytics, automation, smart technology"
         canonicalUrl="https://dextralogic.com/"
       />
       <Header />
