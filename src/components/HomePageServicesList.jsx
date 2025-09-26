@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { createUrlParam } from "../utils/helper";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaCheck } from "react-icons/fa";
+import { InquiryForm } from "./GetInTouch";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -32,23 +33,51 @@ const HomePageServicesList = () => {
   return (
     <section className="w-full">
       {!pathname.includes("/services") && (
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          className="text-center mb-12"
-        >
-          <motion.p variants={fadeIn} className="gradient-text uppercase font-semibold tracking-wider">
-            Services We Offer
-          </motion.p>
-          <motion.h2 variants={fadeIn} className="heading mt-3 mb-4">
-            Comprehensive Digital Solutions
-          </motion.h2>
-          <motion.p variants={fadeIn} className="max-w-3xl mx-auto text-gray-600">
-            From AI implementation to web development, we offer end-to-end services to transform your business.
-          </motion.p>
-        </motion.div>
+        <>
+          {/* Enquiry Section */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mb-16"
+          >
+            <motion.div variants={fadeIn} className="text-center mb-8">
+              <p className="gradient-text uppercase font-semibold tracking-wider">
+                Let's Connect
+              </p>
+              <h2 className="heading mt-3 mb-4">
+                Get Started with Your Project
+              </h2>
+              <p className="max-w-3xl mx-auto text-gray-600">
+                Ready to transform your business? Connect with our team to discuss your project requirements and get a personalized solution.
+              </p>
+            </motion.div>
+            
+            <motion.div variants={fadeIn} className="flex justify-center">
+              <InquiryForm />
+            </motion.div>
+          </motion.div>
+
+          {/* Services Header */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="text-center mb-12"
+          >
+            <motion.p variants={fadeIn} className="gradient-text uppercase font-semibold tracking-wider">
+              Services We Offer
+            </motion.p>
+            <motion.h2 variants={fadeIn} className="heading mt-3 mb-4">
+              Comprehensive Digital Solutions
+            </motion.h2>
+            <motion.p variants={fadeIn} className="max-w-3xl mx-auto text-gray-600">
+              From AI implementation to web development, we offer end-to-end services to transform your business.
+            </motion.p>
+          </motion.div>
+        </>
       )}
 
       <div className="grid md:grid-cols-[35%_65%] gap-8 p-4 bg-gradient-to-r from-gray-50 to-white rounded-2xl shadow-lg border border-gray-100">
