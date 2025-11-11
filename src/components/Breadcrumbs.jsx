@@ -36,8 +36,6 @@ const Breadcrumbs = () => {
     // Skip numeric IDs (like blog post IDs)
     if (!isNaN(name)) return;
     
-    const isLast = index === pathnames.length - 1 || (!isNaN(pathnames[index + 1]));
-    
     breadcrumbItems.push({
       name: formatPathname(name),
       url: currentPath

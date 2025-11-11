@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import vid from "../../assets/vids/banner.mp4";
 import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
-import robot from "../../assets/robot-img.png";
 import { motion } from "framer-motion";
-import { FaRocket, FaRobot, FaCode, FaChartLine, FaArrowRight } from "react-icons/fa";
+import { FaRobot, FaCode, FaChartLine, FaArrowRight } from "react-icons/fa";
 
 const Banner = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);

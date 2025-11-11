@@ -264,11 +264,13 @@ export const WebsiteStructuredData = () => {
   );
 };
 
-export default {
+const structuredDataExports = {
   OrganizationStructuredData,
   ServiceStructuredData,
   ArticleStructuredData,
   FAQStructuredData,
   BreadcrumbStructuredData,
-  WebsiteStructuredData
+  WebsiteStructuredData,
 };
+
+export default structuredDataExports;

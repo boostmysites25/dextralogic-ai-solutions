@@ -1,7 +1,6 @@
 import { useState } from "react";
 import vid from "../../assets/vids/banner.mp4";
 import ReactPlayer from "react-player";
-import robot from "../../assets/robot-img.png";
 import { motion } from "framer-motion";
 import { FaCode, FaMobileAlt, FaRocket, FaServer } from "react-icons/fa";
 import { Link } from "react-scroll";
