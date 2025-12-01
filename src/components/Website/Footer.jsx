@@ -74,6 +74,9 @@ const Footer = () => {
             <Link to="/services" className="cursor-pointer">
               Services
             </Link>
+            <Link to="/portfolio" className="cursor-pointer">
+              Portfolio
+            </Link>
             <Link to="/contact-us" className="cursor-pointer">
               Contact Us
             </Link>

@@ -34,6 +34,7 @@ const Industries = lazy(() => import("./pages/Industries"));
 const Blogs = lazy(() => import("./pages/Blogs"));
 const BlogsDetail = lazy(() => import("./pages/BlogsDetail"));
 const ThankYou = lazy(() => import("./pages/ThankYou"));
+const Portfolio = lazy(() => import("./pages/Portfolio"));
 const Breadcrumbs = lazy(() => import("./components/Breadcrumbs"));
 
 Aos.init({
@@ -77,6 +78,7 @@ function App() {
                     <Route path="/contact-us" element={<ContactUs />} />
                     <Route path="/about-us" element={<AboutUs />} />
                     <Route path="/services" element={<OurServices />} />
+                    <Route path="/portfolio" element={<Portfolio />} />
                     <Route path="/industries" element={<Industries />} />
                     <Route path="/blogs" element={<Blogs />} />
                     <Route path="/blog/:slug" element={<BlogsDetail />} />
