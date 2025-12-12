@@ -20,6 +20,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import ErrorBoundary from './components/ErrorBoundary';
+import GTMTracker from './components/GTMTracker';
 
 const Home = lazy(() => import("./pages/Home"));
 const OurServices = lazy(() => import("./pages/OurServices"));
@@ -63,6 +64,7 @@ function App() {
               <LoadingSpinnerContext />
               <Suspense fallback={<LoadingSpinner />}>
                 <ScrollToTop />
+                <GTMTracker />
                 <Toaster position="top-center" />
                 {/* Global structured data for the website */}
                 <WebsiteStructuredData />
@@ -103,7 +105,7 @@ function App() {
               </Suspense>
             </SpinnerContextProvider>
           </BrowserRouter>
-          <ReactQueryDevtools initialIsOpen={false} />
+          {/* <ReactQueryDevtools initialIsOpen={false} /> */}
         </HelmetProvider>
       </QueryClientProvider>
     </ErrorBoundary>
