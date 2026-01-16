@@ -42,6 +42,7 @@ Aos.init({
   once: true,
   duration: 500,
   offset: -50,
+  disable: 'mobile',
 });
 
 // Create a client

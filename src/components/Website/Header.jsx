@@ -1,9 +1,11 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { logo, websitePagesLinks } from "../../constants";
-import Drawer from "react-modern-drawer";
+// import Drawer from "react-modern-drawer"; // Lazy loaded
 import { Divide as Hamburger } from "hamburger-react";
 import { IoMdClose } from "react-icons/io";
+
+const Drawer = lazy(() => import("react-modern-drawer"));
 
 const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -63,56 +65,60 @@ const Header = () => {
           </button>
         </div>
       </div>
-      <Drawer
-        open={isOpen}
-        onClose={() => setIsOpen(false)}
-        direction="right"
-        className="z-10 p-2"
-      >
-        <div className="mb-6 flex items-center justify-between pr-[.7rem] py-[.4rem]">
-          <img
-            loading="lazy"
-            src={logo}
-            alt="logo"
-            className="h-[3rem] object-contain"
-          />
-          <button
-            title="Close"
-            onClick={() => setIsOpen(false)}
-            className="  text-[2rem]"
+      <Suspense fallback={null}>
+        {isOpen && (
+          <Drawer
+            open={isOpen}
+            onClose={() => setIsOpen(false)}
+            direction="right"
+            className="z-10 p-2"
           >
-            <IoMdClose />
-          </button>
-        </div>
-        <div className="py-4 px-7 flex flex-col gap-4">
-          {websitePagesLinks.map(({ id, link, title }) => (
-            <Link
-              onClick={() => setIsOpen(false)}
-              key={id}
-              className="text-2xl font-medium duration-300 link"
-              to={link}
-            >
-              {title}
-            </Link>
-          ))}
-          <Link
-            to="/about-us"
-            className="text-2xl font-medium duration-300 link"
-          >
-            About Us
-          </Link>
-          <Link to="/blogs" className="text-2xl font-medium duration-300 link">
-            Blogs
-          </Link>
-          <Link
-            onClick={() => setIsOpen(false)}
-            to="/contact-us"
-            className="text-2xl font-medium duration-300 link"
-          >
-            Contact Us
-          </Link>
-        </div>
-      </Drawer>
+            <div className="mb-6 flex items-center justify-between pr-[.7rem] py-[.4rem]">
+              <img
+                loading="lazy"
+                src={logo}
+                alt="logo"
+                className="h-[3rem] object-contain"
+              />
+              <button
+                title="Close"
+                onClick={() => setIsOpen(false)}
+                className="  text-[2rem]"
+              >
+                <IoMdClose />
+              </button>
+            </div>
+            <div className="py-4 px-7 flex flex-col gap-4">
+              {websitePagesLinks.map(({ id, link, title }) => (
+                <Link
+                  onClick={() => setIsOpen(false)}
+                  key={id}
+                  className="text-2xl font-medium duration-300 link"
+                  to={link}
+                >
+                  {title}
+                </Link>
+              ))}
+              <Link
+                to="/about-us"
+                className="text-2xl font-medium duration-300 link"
+              >
+                About Us
+              </Link>
+              <Link to="/blogs" className="text-2xl font-medium duration-300 link">
+                Blogs
+              </Link>
+              <Link
+                onClick={() => setIsOpen(false)}
+                to="/contact-us"
+                className="text-2xl font-medium duration-300 link"
+              >
+                Contact Us
+              </Link>
+            </div>
+          </Drawer>
+        )}
+      </Suspense>
     </div>
   );
 };
