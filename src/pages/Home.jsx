@@ -7,7 +7,7 @@ import Banner from "../components/Website/Banner";
 // BrandLogos, Portfolio, Testimonials, CallToAction imports removed in favor of lazy loading below
 import { FaArrowRight, FaLightbulb, FaChartLine, FaCode } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { m, LazyMotion, domAnimation } from "framer-motion";
 import SEO from "../components/SEO";
 
 const TrustWorthySection = lazy(() =>
@@ -52,7 +52,7 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <LazyMotion features={domAnimation}>
       <SEO
         title="AI Solutions & Digital Transformation | Dextralogic"
         description="Leading AI solutions provider specializing in machine learning, web development, mobile apps, blockchain, and cloud services. Transform your business with cutting-edge technology and expert AI implementation."
@@ -96,7 +96,7 @@ const Home = () => {
         <div className="wrapper">
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div className="relative h-full">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -109,29 +109,29 @@ const Home = () => {
                   loading="lazy"
                   className="w-full h-full aspect-video rounded-xl object-cover shadow-xl"
                 />
-              </motion.div>
+              </m.div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full -z-10"></div>
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-secondary/10 rounded-full -z-10"></div>
             </div>
 
-            <motion.div
+            <m.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
               className="flex flex-col gap-6"
             >
-              <motion.h3 variants={fadeIn} className="heading">
+              <m.h3 variants={fadeIn} className="heading">
                 Pioneering intelligent solutions for tomorrow's challenges.
-              </motion.h3>
-              <motion.p variants={fadeIn} className="text-gray-600">
+              </m.h3>
+              <m.p variants={fadeIn} className="text-gray-600">
                 At Dextralogic, we specialize in delivering cutting-edge
                 solutions that drive innovation and efficiency. Our expertise
                 spans across AI & ML, Web & Mobile Development, Blockchain &
                 Web3, UI/UX Design, and Cloud Services, ensuring your business
                 stays ahead in the digital era.
-              </motion.p>
-              <motion.p variants={fadeIn} className="text-gray-600">
+              </m.p>
+              <m.p variants={fadeIn} className="text-gray-600">
                 Dextralogic AI solutions stands as your strategic partner in
                 navigating the evolving technological landscape. We specialize
                 in crafting bespoke AI implementations that seamlessly integrate
@@ -139,16 +139,16 @@ const Home = () => {
                 deep technical knowledge with creative problem-solving to
                 deliver solutions that drive measurable results across your
                 enterprise.
-              </motion.p>
-              <motion.div variants={fadeIn}>
+              </m.p>
+              <m.div variants={fadeIn}>
                 <Link
                   to="/about-us"
                   className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
                 >
                   Learn more about our approach <FaArrowRight />
                 </Link>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -173,37 +173,37 @@ const Home = () => {
       <section className="bg-white">
         <div className="wrapper">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div
+            <m.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
               className="flex flex-col gap-6"
             >
-              <motion.h3 variants={fadeIn} className="heading">
+              <m.h3 variants={fadeIn} className="heading">
                 The Impact of AI Technology
-              </motion.h3>
-              <motion.img
+              </m.h3>
+              <m.img
                 variants={fadeIn}
                 src={aboutImg2}
                 alt="about"
                 loading="lazy"
                 className="md:hidden w-full rounded-xl object-cover shadow-lg mb-4"
               />
-              <motion.p variants={fadeIn} className="text-gray-600">
+              <m.p variants={fadeIn} className="text-gray-600">
                 In today's digital ecosystem, AI technology serves as a
                 fundamental catalyst for business transformation. By
                 implementing intelligent systems, organizations can analyze
                 complex datasets, automate routine processes, and gain valuable
                 competitive insights.
-              </motion.p>
-              <motion.p variants={fadeIn} className="text-gray-600">
+              </m.p>
+              <m.p variants={fadeIn} className="text-gray-600">
                 Our solutions harness these capabilities to create adaptive
                 systems that learn and evolve alongside your business, ensuring
                 long-term value and sustainable growth in an increasingly
                 data-driven marketplace.
-              </motion.p>
-              <motion.div
+              </m.p>
+              <m.div
                 variants={fadeIn}
                 className="flex sm:flex-row flex-col gap-4 mt-2"
               >
@@ -223,11 +223,11 @@ const Home = () => {
                     Predictive Insights
                   </span>
                 </div>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
 
             <div className="relative hidden md:block">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -240,7 +240,7 @@ const Home = () => {
                   loading="lazy"
                   className="w-full rounded-xl object-cover shadow-xl"
                 />
-              </motion.div>
+              </m.div>
               <div className="absolute -top-6 -right-6 w-32 h-32 bg-primary/10 rounded-full -z-10"></div>
               <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-secondary/10 rounded-full -z-10"></div>
             </div>
@@ -286,7 +286,7 @@ const Home = () => {
         <div className="wrapper">
           <div className="max-w-7xl mx-auto grid md:grid-cols-[30%_auto] items-center gap-12">
             <div className="relative">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -299,33 +299,33 @@ const Home = () => {
                   alt="ceo"
                   className="w-full rounded-2xl shadow-lg object-cover"
                 />
-              </motion.div>
+              </m.div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/10 rounded-full -z-10"></div>
             </div>
 
-            <motion.div
+            <m.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
               className="flex flex-col gap-6"
             >
-              <motion.h3 variants={fadeIn} className="heading">
+              <m.h3 variants={fadeIn} className="heading">
                 A Vision for Innovation
-              </motion.h3>
-              <motion.p variants={fadeIn} className="text-gray-600">
+              </m.h3>
+              <m.p variants={fadeIn} className="text-gray-600">
                 At Dextralogic, we believe in the transformative potential of
                 intelligent technologies to reshape industries and create new
                 possibilities. Our dedicated team works tirelessly to bridge the
                 gap between cutting-edge research and practical business
                 applications.
-              </motion.p>
-              <motion.p variants={fadeIn} className="text-gray-600">
+              </m.p>
+              <m.p variants={fadeIn} className="text-gray-600">
                 We're passionate about empowering our clients with solutions
                 that not only address current challenges but anticipate future
                 needs in an ever-evolving digital landscape.
-              </motion.p>
-            </motion.div>
+              </m.p>
+            </m.div>
           </div>
         </div>
       </section>
@@ -345,7 +345,7 @@ const Home = () => {
       </section>
 
       <Footer />
-    </>
+    </LazyMotion>
   );
 };
 
