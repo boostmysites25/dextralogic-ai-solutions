@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import vid from "../../assets/vids/banner.mp4";
-import bannerImg from "../../assets/landing-banner-img.png";
+import bannerImg from "../../assets/landing-about.webp";
 import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
