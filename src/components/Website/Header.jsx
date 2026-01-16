@@ -18,7 +18,7 @@ const Header = () => {
               src={logo}
               alt="logo"
               width="150"
-              height="100"
+              height="87"
               className="w-[6rem] sm:w-[8rem] object-contain"
             />
           </Link>
@@ -27,9 +27,8 @@ const Header = () => {
               <Link
                 key={link.id}
                 to={link.link}
-                className={`text-md cursor-pointer ${
-                  pathname === link.link && "active-link"
-                }`}
+                className={`text-md cursor-pointer ${pathname === link.link && "active-link"
+                  }`}
               >
                 {link.title}
               </Link>

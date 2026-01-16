@@ -46,6 +46,7 @@ const Banner = () => {
           <img
             src={bannerImg}
             alt="Banner"
+            fetchPriority="high"
             className="w-full h-full object-cover"
           />
         ) : (
