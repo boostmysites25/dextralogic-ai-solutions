@@ -1,11 +1,12 @@
 import React, { useEffect, useState, Suspense, lazy } from "react";
 import vid from "../../assets/vids/banner.mp4";
-// import bannerImg from "../../assets/landing-about.webp";
-const bannerImg = "/assets/landing-about.webp"; // Served from public/assets
-// import ReactPlayer from "react-player"; // Lazy loaded below
+
 import { Link } from "react-router-dom";
 import { m, LazyMotion, domAnimation } from "framer-motion";
 import { FaRobot, FaCode, FaChartLine, FaArrowRight } from "react-icons/fa";
+
+// import bannerImg from "../../assets/landing-about.webp";
+const bannerImg = "/assets/landing-about.webp"; // Served from public/assets
 
 const ReactPlayer = lazy(() => import("react-player"));
 
