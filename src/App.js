@@ -18,7 +18,7 @@ import { Toaster } from "react-hot-toast";
 import { WebsiteStructuredData, OrganizationStructuredData } from "./components/StructuredData";
 import { HelmetProvider } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
 import ErrorBoundary from './components/ErrorBoundary';
 import GTMTracker from './components/GTMTracker';
 
