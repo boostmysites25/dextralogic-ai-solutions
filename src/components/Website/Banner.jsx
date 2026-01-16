@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import vid from "../../assets/vids/banner.mp4";
+import bannerImg from "../../assets/landing-banner-img.png";
 import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -7,15 +8,29 @@ import { FaRobot, FaCode, FaChartLine, FaArrowRight } from "react-icons/fa";
 
 const Banner = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
-    // Simulate video loading
-    const timer = setTimeout(() => {
-      setIsVideoLoaded(true);
-    }, 1000);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
 
-    return () => clearTimeout(timer);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    // Determine loading state based on mobile/desktop
+    if (isMobile) {
+      setIsVideoLoaded(true);
+    } else {
+      // Fallback timer in case video takes too long or fails
+      const timer = setTimeout(() => {
+        setIsVideoLoaded(true);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [isMobile]);
 
   const features = [
     { icon: <FaRobot />, text: "AI & Machine Learning" },
@@ -27,28 +42,36 @@ const Banner = () => {
     <div id="banner" className="min-h-screen relative overflow-hidden">
       {/* Video Background with Improved Overlay */}
       <div className="absolute inset-0 w-full h-full banner">
-        <ReactPlayer
-          url={vid}
-          playing
-          loop
-          muted
-          width="100%"
-          height="100%"
-          playsinline
-          pip={false}
-          onReady={() => setIsVideoLoaded(true)}
-          config={{
-            file: {
-              attributes: {
-                controlsList: "nodownload noplaybackrate",
-                disablePictureInPicture: true,
-                playsinline: true,
+        {isMobile ? (
+          <img
+            src={bannerImg}
+            alt="Banner"
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <ReactPlayer
+            url={vid}
+            playing
+            loop
+            muted
+            width="100%"
+            height="100%"
+            playsinline
+            pip={false}
+            onReady={() => setIsVideoLoaded(true)}
+            config={{
+              file: {
+                attributes: {
+                  controlsList: "nodownload noplaybackrate",
+                  disablePictureInPicture: true,
+                  playsinline: true,
+                },
               },
-            },
-          }}
-          controls={false}
-          style={{ objectFit: "cover" }}
-        />
+            }}
+            controls={false}
+            style={{ objectFit: "cover" }}
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
       </div>
 
@@ -65,17 +88,17 @@ const Banner = () => {
             <span className="px-4 py-1 bg-primary/20 text-primary rounded-full text-sm font-bold mb-6">
               Welcome to Dextralogic AI Solutions
             </span>
-            
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
               Empowering Your <span className="text-primary">Digital</span> Transformation
             </h1>
-            
+
             <p className="text-lg text-white max-w-7xl mx-auto mb-8">
               Are you looking to scale with AI-powered automation, launch a new
               mobile or web app, explore blockchain solutions, or elevate your
               UI/UX design? We're your technology partner for the future.
             </p>
-            
+
             <div className="flex flex-wrap gap-4 mb-10">
               {features.map((feature, index) => (
                 <motion.div
@@ -90,7 +113,7 @@ const Banner = () => {
                 </motion.div>
               ))}
             </div>
-            
+
             <div className="flex flex-wrap gap-4">
               <Link to="/contact-us" className="px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-full transition-colors flex items-center gap-2">
                 Get Started Now <FaArrowRight />
@@ -100,7 +123,7 @@ const Banner = () => {
               </Link>
             </div>
           </motion.div>
-          
+
           {/* Robot Image */}
           {/* <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -125,21 +148,21 @@ const Banner = () => {
           </motion.div> */}
         </div>
       </div>
-      
+
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: isVideoLoaded ? 1 : 0 }}
         transition={{ delay: 1.2, duration: 0.5 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center"
       >
         <span className="text-white/70 text-sm mb-2">Scroll to explore</span>
-        <motion.div 
+        <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
           className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center"
         >
-          <motion.div 
+          <motion.div
             animate={{ y: [0, 15, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}
             className="w-1.5 h-1.5 bg-white rounded-full mt-2"

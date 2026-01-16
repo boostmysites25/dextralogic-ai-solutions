@@ -1,18 +1,15 @@
-import React, { lazy, memo, useState, useEffect } from "react";
+import React, { lazy, memo, useState, useEffect, Suspense } from "react";
 import Header from "../components/Website/Header";
 import Footer from "../components/Website/Footer";
 import aboutImg from "../assets/aboutus-3.webp";
 import aboutImg2 from "../assets/why-ai-matters.webp";
-import BrandLogos from "../components/BrandLogos";
-import Portfolio from "../components/Portfolio";
-import Testimonials from "../components/Testimonials";
-import CallToAction from "../components/CallToAction";
+import Banner from "../components/Website/Banner";
+// BrandLogos, Portfolio, Testimonials, CallToAction imports removed in favor of lazy loading below
 import { FaArrowRight, FaLightbulb, FaChartLine, FaCode } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
 
-const Banner = lazy(() => import("../components/Website/Banner"));
 const TrustWorthySection = lazy(() =>
   import("../components/TrustWorthySection")
 );
@@ -21,6 +18,10 @@ const HomePageServicesList = lazy(() =>
   import("../components/HomePageServicesList")
 );
 const GetInTouch = lazy(() => import("../components/GetInTouch"));
+const BrandLogos = lazy(() => import("../components/BrandLogos"));
+const Portfolio = lazy(() => import("../components/Portfolio"));
+const Testimonials = lazy(() => import("../components/Testimonials"));
+const CallToAction = lazy(() => import("../components/CallToAction"));
 
 // Animation variants
 const fadeIn = {
@@ -52,8 +53,8 @@ const Home = () => {
 
   return (
     <>
-      <SEO 
-        title="AI Solutions & Digital Transformation | Dextralogic" 
+      <SEO
+        title="AI Solutions & Digital Transformation | Dextralogic"
         description="Leading AI solutions provider specializing in machine learning, web development, mobile apps, blockchain, and cloud services. Transform your business with cutting-edge technology and expert AI implementation."
         keywords="AI solutions, machine learning, artificial intelligence, web development, mobile app development, blockchain, web3, UI/UX design, cloud services, digital transformation, AI voice agents, customer experience, predictive analytics, automation, smart technology"
         canonicalUrl="https://dextralogic.com/"
@@ -63,9 +64,8 @@ const Home = () => {
 
       {/* Floating Quick Links */}
       <div
-        className={`fixed right-5 z-40 flex flex-col gap-3 transition-all duration-500 ${
-          isScrolled ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed right-5 z-40 flex flex-col gap-3 transition-all duration-500 ${isScrolled ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
       >
         <a
           href="#about-us"
@@ -106,6 +106,7 @@ const Home = () => {
                 <img
                   src={aboutImg}
                   alt="about"
+                  loading="lazy"
                   className="w-full h-full aspect-video rounded-xl object-cover shadow-xl"
                 />
               </motion.div>
@@ -155,13 +156,17 @@ const Home = () => {
       {/* Services Section - Redesigned */}
       <section id="services" className="py-16 bg-white">
         <div className="wrapper">
-          <HomePageServicesList />
+          <Suspense fallback={null}>
+            <HomePageServicesList />
+          </Suspense>
         </div>
       </section>
 
       {/* Trust Section - Redesigned */}
       <section className="py-20 bg-gradient-to-r from-white to-white">
-        <TrustWorthySection />
+        <Suspense fallback={null}>
+          <TrustWorthySection />
+        </Suspense>
       </section>
 
       {/* AI Impact Section - Redesigned */}
@@ -182,6 +187,7 @@ const Home = () => {
                 variants={fadeIn}
                 src={aboutImg2}
                 alt="about"
+                loading="lazy"
                 className="md:hidden w-full rounded-xl object-cover shadow-lg mb-4"
               />
               <motion.p variants={fadeIn} className="text-gray-600">
@@ -231,6 +237,7 @@ const Home = () => {
                 <img
                   src={aboutImg2}
                   alt="about"
+                  loading="lazy"
                   className="w-full rounded-xl object-cover shadow-xl"
                 />
               </motion.div>
@@ -247,24 +254,32 @@ const Home = () => {
         className="bg-gradient-to-b from-white to-gray-50"
       >
         <div className="wrapper">
-          <IndustriesWeServe />
+          <Suspense fallback={null}>
+            <IndustriesWeServe />
+          </Suspense>
         </div>
       </section>
 
       {/* Call to Action - Redesigned */}
       <section className="py-20 bg-white">
-        <CallToAction />
+        <Suspense fallback={null}>
+          <CallToAction />
+        </Suspense>
       </section>
 
       {/* Portfolio Section - Redesigned */}
       <section className="bg-gradient-to-b from-white to-gray-50">
         <div className="wrapper">
-          <Portfolio />
+          <Suspense fallback={null}>
+            <Portfolio />
+          </Suspense>
         </div>
       </section>
 
       {/* Testimonials Section - Redesigned */}
-      <Testimonials />
+      <Suspense fallback={null}>
+        <Testimonials />
+      </Suspense>
 
       {/* Leadership Vision Section - Redesigned */}
       <section className="py-20 bg-gradient-to-b from-white to-gray-50">
@@ -317,12 +332,16 @@ const Home = () => {
 
       {/* Brand Logos Section - Redesigned */}
       <section className="bg-white">
-        <BrandLogos />
+        <Suspense fallback={null}>
+          <BrandLogos />
+        </Suspense>
       </section>
 
       {/* Contact Section - Redesigned */}
       <section className="bg-gradient-to-b from-white to-gray-50">
-        <GetInTouch />
+        <Suspense fallback={null}>
+          <GetInTouch />
+        </Suspense>
       </section>
 
       <Footer />
