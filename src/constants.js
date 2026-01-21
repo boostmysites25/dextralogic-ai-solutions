@@ -22,7 +22,7 @@ import client2 from "./assets/client-2.png";
 import client3 from "./assets/client-3.png";
 import client4 from "./assets/client-4.png";
 
-// logo
+// logo - use SVG for better performance
 import logo from "./assets/logo/logo.png";
 
 export { logo };

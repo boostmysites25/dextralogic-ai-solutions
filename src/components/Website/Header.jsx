@@ -16,11 +16,11 @@ const Header = () => {
         <div className="flex w-full justify-between items-center gap-5 py-3 wrapper">
           <Link to="/">
             <img
-              fetchPriority="high"
               src={logo}
               alt="logo"
               width="150"
               height="87"
+              decoding="async"
               className="w-[6rem] sm:w-[8rem] object-contain"
             />
           </Link>

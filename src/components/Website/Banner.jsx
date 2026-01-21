@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import vid from "../../assets/vids/banner.mp4";
 
 import { Link } from "react-router-dom";
@@ -9,30 +9,8 @@ import { FaRobot, FaCode, FaChartLine, FaArrowRight } from "react-icons/fa";
 const bannerImg = "/assets/landing-about.webp"; // Served from public/assets
 
 const Banner = () => {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    // Determine loading state based on mobile/desktop
-    if (isMobile) {
-      setIsVideoLoaded(true);
-    } else {
-      // Fallback timer in case video takes too long or fails
-      const timer = setTimeout(() => {
-        setIsVideoLoaded(true);
-      }, 500);
-      return () => clearTimeout(timer);
-    }
-  }, [isMobile]);
+  // Initialize based on viewport - mobile gets instant visibility for LCP
+  const [isMobile] = useState(window.innerWidth < 768);
 
   const features = [
     { icon: <FaRobot />, text: "AI & Machine Learning" },
@@ -48,8 +26,12 @@ const Banner = () => {
           {isMobile ? (
             <img
               src={bannerImg}
+              srcSet="/assets/landing-about.webp 1024w"
+              sizes="100vw"
               alt="Banner"
               fetchPriority="high"
+              width="1024"
+              height="768"
               className="w-full h-full object-cover"
             />
           ) : (
@@ -60,7 +42,6 @@ const Banner = () => {
               playsInline
               preload="metadata"
               poster={bannerImg}
-              onLoadedData={() => setIsVideoLoaded(true)}
               className="w-full h-full object-cover"
               style={{ objectFit: "cover" }}
             >
@@ -75,9 +56,9 @@ const Banner = () => {
           <div className="wrapper flex text-center items-center gap-10">
             {/* Text Content */}
             <m.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: isVideoLoaded ? 1 : 0, y: isVideoLoaded ? 0 : 30 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              initial={isMobile ? false : { opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={isMobile ? { duration: 0 } : { duration: 0.8, delay: 0.2 }}
               className="flex flex-col items-center justify-center z-10"
             >
               <span className="px-4 py-1 bg-primary/20 text-primary rounded-full text-sm font-bold mb-6">
@@ -98,9 +79,9 @@ const Banner = () => {
                 {features.map((feature, index) => (
                   <m.div
                     key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: isVideoLoaded ? 1 : 0, y: isVideoLoaded ? 0 : 20 }}
-                    transition={{ duration: 0.5, delay: 0.4 + (index * 0.2) }}
+                    initial={isMobile ? false : { opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={isMobile ? { duration: 0 } : { duration: 0.5, delay: 0.4 + (index * 0.2) }}
                     className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full"
                   >
                     <span className="text-primary">{feature.icon}</span>
@@ -146,9 +127,9 @@ const Banner = () => {
 
         {/* Scroll Indicator */}
         <m.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isVideoLoaded ? 1 : 0 }}
-          transition={{ delay: 1.2, duration: 0.5 }}
+          initial={isMobile ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={isMobile ? { duration: 0 } : { delay: 1.2, duration: 0.5 }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center"
         >
           <span className="text-white/70 text-sm mb-2">Scroll to explore</span>

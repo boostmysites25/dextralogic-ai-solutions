@@ -21,11 +21,11 @@ const Header = () => {
             className="cursor-pointer"
           >
             <img
-              fetchPriority="high"
               src={logo}
               alt="logo"
               width="150"
               height="100"
+              decoding="async"
               className="w-[6rem] sm:w-[8rem] object-contain"
             />
           </ScrollLink>
