@@ -81,22 +81,11 @@
     @apply text-lg leading-snug;
   }
   
-  /* Offcanvas Menu Styles */
-  /* Offcanvas Menu Styles */
-  .offcanvas-link {
-    @apply text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 hover:bg-primary bg-opacity-10 text-primary relative overflow-hidden;
-  }
-  
-  .offcanvas-link::after {
-    content: '';
-    @apply absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300;
-  }
-  
-  .offcanvas-link:hover::after {
-    @apply w-full;
-  }
-}
 
+
+
+  /* End of utilities layer */
+}
 
 .reset-html *{
   all: revert;

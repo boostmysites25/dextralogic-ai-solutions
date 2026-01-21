@@ -120,12 +120,14 @@ const Header = () => {
             smooth={true}
             duration={500}
             offset={-20}
-            className="offcanvas-link cursor-pointer"
+            className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 hover:bg-primary/10 hover:text-primary relative overflow-hidden cursor-pointer group"
           >
             Home
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
           </ScrollLink>
-          <Link to="/about-us" className="offcanvas-link">
+          <Link to="/about-us" className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 hover:bg-primary/10 hover:text-primary relative overflow-hidden group">
             About Us
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <ScrollLink
             to="services"
@@ -134,9 +136,10 @@ const Header = () => {
             smooth={true}
             duration={500}
             offset={-20}
-            className="offcanvas-link cursor-pointer"
+            className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 hover:bg-primary/10 hover:text-primary relative overflow-hidden cursor-pointer group"
           >
             Services
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
           </ScrollLink>
           <ScrollLink
             to="portfolio"
@@ -145,9 +148,10 @@ const Header = () => {
             smooth={true}
             duration={500}
             offset={-80}
-            className="offcanvas-link cursor-pointer"
+            className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 hover:bg-primary/10 hover:text-primary relative overflow-hidden cursor-pointer group"
           >
             Portfolio
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
           </ScrollLink>
           <ScrollLink
             to="contact"
@@ -156,9 +160,10 @@ const Header = () => {
             smooth={true}
             duration={500}
             offset={-20}
-            className="offcanvas-link text-primary cursor-pointer"
+            className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 hover:bg-primary/10 text-primary relative overflow-hidden cursor-pointer group"
           >
             Contact Us
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
           </ScrollLink>
         </div>
       </Drawer>
