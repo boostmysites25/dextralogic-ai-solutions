@@ -93,7 +93,7 @@ const Header = () => {
                 <Link
                   onClick={() => setIsOpen(false)}
                   key={id}
-                  className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 bg-primary/10 hover:text-primary relative overflow-hidden group"
+                  className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 bg-primary bg-opacity-10 hover:text-primary relative overflow-hidden group"
                   to={link}
                 >
                   {title}
@@ -102,19 +102,19 @@ const Header = () => {
               ))}
               <Link
                 to="/about-us"
-                className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 bg-primary/10 hover:text-primary relative overflow-hidden group"
+                className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 bg-primary bg-opacity-10 hover:text-primary relative overflow-hidden group"
               >
                 About Us
                 <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <Link to="/blogs" className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 bg-primary/10 hover:text-primary relative overflow-hidden group">
+              <Link to="/blogs" className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 bg-primary bg-opacity-10 hover:text-primary relative overflow-hidden group">
                 Blogs
                 <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
                 onClick={() => setIsOpen(false)}
                 to="/contact-us"
-                className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 bg-primary/10 text-primary relative overflow-hidden group"
+                className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 bg-primary bg-opacity-10 text-primary relative overflow-hidden group"
               >
                 Contact Us
                 <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>

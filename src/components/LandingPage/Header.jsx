@@ -120,12 +120,12 @@ const Header = () => {
             smooth={true}
             duration={500}
             offset={-20}
-            className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 bg-primary/10 hover:text-primary relative overflow-hidden cursor-pointer group"
+            className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 bg-primary bg-opacity-10 hover:text-primary relative overflow-hidden cursor-pointer group"
           >
             Home
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
           </ScrollLink>
-          <Link to="/about-us" className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 bg-primary/10 hover:text-primary relative overflow-hidden group">
+          <Link to="/about-us" className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 bg-primary bg-opacity-10 hover:text-primary relative overflow-hidden group">
             About Us
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
           </Link>
@@ -136,7 +136,7 @@ const Header = () => {
             smooth={true}
             duration={500}
             offset={-20}
-            className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 bg-primary/10 hover:text-primary relative overflow-hidden cursor-pointer group"
+            className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 bg-primary bg-opacity-10 hover:text-primary relative overflow-hidden cursor-pointer group"
           >
             Services
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -148,7 +148,7 @@ const Header = () => {
             smooth={true}
             duration={500}
             offset={-80}
-            className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 bg-primary/10 hover:text-primary relative overflow-hidden cursor-pointer group"
+            className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 bg-primary bg-opacity-10 hover:text-primary relative overflow-hidden cursor-pointer group"
           >
             Portfolio
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -160,7 +160,7 @@ const Header = () => {
             smooth={true}
             duration={500}
             offset={-20}
-            className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 bg-primary/10 text-primary relative overflow-hidden cursor-pointer group"
+            className="text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 bg-primary bg-opacity-10 text-primary relative overflow-hidden cursor-pointer group"
           >
             Contact Us
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
