@@ -265,30 +265,30 @@ export const allServices = [
           Stay ahead of the curve by adopting blockchain solutions that offer trust and transparency. From smart contracts to decentralized applications (DApps), we provide end-to-end blockchain development services tailored to your specific needs. Our team stays at the forefront of Web3 innovations to deliver cutting-edge solutions that give you a competitive edge.`,
     },
   },
-  {
-    id: 4,
-    img1: require("./assets/services-details/uiux1.webp"),
-    img2: require("./assets/services-details/uiux2.webp"),
-    title: "UI/UX Design",
-    smallPara:
-      "A great user experience is key to customer satisfaction and business success. Our UI/UX design services focus on creating intuitive, engaging, and visually appealing interfaces that enhance user satisfaction and drive conversion. We combine aesthetic design with functional usability to deliver exceptional digital experiences.\n\nOur design process is user-centered, research-driven, and iterative, ensuring that the final product meets both user needs and business objectives. From wireframing and prototyping to usability testing and implementation, we provide comprehensive design services that set your digital products apart.",
-    keyBenefits: [
-      "Increased user engagement and satisfaction",
-      "Higher conversion rates and customer retention",
-      "Reduced development costs through early problem identification",
-      "Consistent brand experience across all touchpoints",
-    ],
-    detailsPageContent: {
-      firstPara: `A great user experience is key to customer satisfaction. Our UI/UX design services include:
-          \n
-          • User Research: Understand your users' needs and behaviors.
-          • Wireframing & Prototyping: Design intuitive interfaces that enhance usability.
-          • Usability Testing: Ensure your designs meet user expectations and business goals.`,
-      servicesSection: `Our UI/UX design services focus on creating intuitive, engaging, and visually appealing interfaces that enhance user satisfaction and drive conversion. We combine aesthetic design with functional usability to deliver exceptional digital experiences.
-          \n
-          We focus on creating designs that are not only visually appealing but also user-friendly. Our design process is user-centered, research-driven, and iterative, ensuring that the final product meets both user needs and business objectives. From wireframing and prototyping to usability testing and implementation, we provide comprehensive design services that set your digital products apart.`,
-    },
-  },
+  // {
+  //   id: 4,
+  //   img1: require("./assets/services-details/uiux1.webp"),
+  //   img2: require("./assets/services-details/uiux2.webp"),
+  //   title: "UI/UX Design",
+  //   smallPara:
+  //     "A great user experience is key to customer satisfaction and business success. Our UI/UX design services focus on creating intuitive, engaging, and visually appealing interfaces that enhance user satisfaction and drive conversion. We combine aesthetic design with functional usability to deliver exceptional digital experiences.\n\nOur design process is user-centered, research-driven, and iterative, ensuring that the final product meets both user needs and business objectives. From wireframing and prototyping to usability testing and implementation, we provide comprehensive design services that set your digital products apart.",
+  //   keyBenefits: [
+  //     "Increased user engagement and satisfaction",
+  //     "Higher conversion rates and customer retention",
+  //     "Reduced development costs through early problem identification",
+  //     "Consistent brand experience across all touchpoints",
+  //   ],
+  //   detailsPageContent: {
+  //     firstPara: `A great user experience is key to customer satisfaction. Our UI/UX design services include:
+  //         \n
+  //         • User Research: Understand your users' needs and behaviors.
+  //         • Wireframing & Prototyping: Design intuitive interfaces that enhance usability.
+  //         • Usability Testing: Ensure your designs meet user expectations and business goals.`,
+  //     servicesSection: `Our UI/UX design services focus on creating intuitive, engaging, and visually appealing interfaces that enhance user satisfaction and drive conversion. We combine aesthetic design with functional usability to deliver exceptional digital experiences.
+  //         \n
+  //         We focus on creating designs that are not only visually appealing but also user-friendly. Our design process is user-centered, research-driven, and iterative, ensuring that the final product meets both user needs and business objectives. From wireframing and prototyping to usability testing and implementation, we provide comprehensive design services that set your digital products apart.`,
+  //   },
+  // },
   {
     id: 5,
     img1: require("./assets/services-details/cloud-computing-1.webp"),

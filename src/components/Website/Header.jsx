@@ -83,7 +83,7 @@ const Header = () => {
               <button
                 title="Close"
                 onClick={() => setIsOpen(false)}
-                className="  text-[2rem]"
+                className="text-white bg-primary rounded-full p-2 text-[1.5rem] hover:rotate-90 transition-all duration-300 shadow-lg hover:shadow-primary/50"
               >
                 <IoMdClose />
               </button>
@@ -93,7 +93,7 @@ const Header = () => {
                 <Link
                   onClick={() => setIsOpen(false)}
                   key={id}
-                  className="text-2xl font-medium duration-300 link"
+                  className="offcanvas-link"
                   to={link}
                 >
                   {title}
@@ -101,17 +101,17 @@ const Header = () => {
               ))}
               <Link
                 to="/about-us"
-                className="text-2xl font-medium duration-300 link"
+                className="offcanvas-link"
               >
                 About Us
               </Link>
-              <Link to="/blogs" className="text-2xl font-medium duration-300 link">
+              <Link to="/blogs" className="offcanvas-link">
                 Blogs
               </Link>
               <Link
                 onClick={() => setIsOpen(false)}
                 to="/contact-us"
-                className="text-2xl font-medium duration-300 link"
+                className="offcanvas-link text-primary"
               >
                 Contact Us
               </Link>

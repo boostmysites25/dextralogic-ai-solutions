@@ -107,26 +107,12 @@ const Header = () => {
           <button
             title="Close"
             onClick={() => setIsOpen(false)}
-            className="  text-[2rem]"
+            className="text-white bg-primary rounded-full p-2 text-[1.5rem] hover:rotate-90 transition-all duration-300 shadow-lg hover:shadow-primary/50"
           >
             <IoMdClose />
           </button>
         </div>
         <div className="py-4 px-7 flex flex-col gap-4">
-          {/* {landingPageHeaderLinks.map(({ id, link, title }) => (
-            <ScrollLink
-              onClick={() => setIsOpen(false)}
-              key={id}
-              className="text-2xl font-medium duration-300 link"
-              to={link}
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={1000}
-            >
-              {title}
-            </ScrollLink>
-          ))} */}
           <ScrollLink
             to="banner"
             onClick={() => setIsOpen(false)}
@@ -134,11 +120,11 @@ const Header = () => {
             smooth={true}
             duration={500}
             offset={-20}
-            className="text-2xl font-medium link"
+            className="offcanvas-link cursor-pointer"
           >
             Home
           </ScrollLink>
-          <Link to="/about-us" className="text-2xl font-medium link">
+          <Link to="/about-us" className="offcanvas-link">
             About Us
           </Link>
           <ScrollLink
@@ -148,9 +134,20 @@ const Header = () => {
             smooth={true}
             duration={500}
             offset={-20}
-            className="text-2xl font-medium link"
+            className="offcanvas-link cursor-pointer"
           >
             Services
+          </ScrollLink>
+          <ScrollLink
+            to="portfolio"
+            onClick={() => setIsOpen(false)}
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-80}
+            className="offcanvas-link cursor-pointer"
+          >
+            Portfolio
           </ScrollLink>
           <ScrollLink
             to="contact"
@@ -159,7 +156,7 @@ const Header = () => {
             smooth={true}
             duration={500}
             offset={-20}
-            className="text-2xl font-medium link"
+            className="offcanvas-link text-primary cursor-pointer"
           >
             Contact Us
           </ScrollLink>
