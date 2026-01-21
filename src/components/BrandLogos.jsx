@@ -1,5 +1,6 @@
 import React from "react";
 import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
 import img1 from "../assets/client-logos/1.png";
 import img2 from "../assets/client-logos/2.png";
 import img3 from "../assets/client-logos/3.png";

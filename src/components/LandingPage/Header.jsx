@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import Drawer from "react-modern-drawer";
+import "react-modern-drawer/dist/index.css";
 import { Divide as Hamburger } from "hamburger-react";
 import { IoMdClose } from "react-icons/io";
 import { logo } from "../../constants";

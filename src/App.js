@@ -5,8 +5,6 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
-import Aos from "aos";
-import "aos/dist/aos.css";
 import { lazy, memo, Suspense, useEffect } from "react";
 import NormalizeSlash from "./components/NormalizeSlash";
 import WhatsAppIcon from "./components/WhatsAppIcon";
@@ -38,13 +36,6 @@ const ThankYou = lazy(() => import("./pages/ThankYou"));
 const Portfolio = lazy(() => import("./pages/Portfolio"));
 const Breadcrumbs = lazy(() => import("./components/Breadcrumbs"));
 
-Aos.init({
-  once: true,
-  duration: 500,
-  offset: -50,
-  disable: 'mobile',
-});
-
 // Create a client
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -56,6 +47,22 @@ const queryClient = new QueryClient({
 });
 
 function App() {
+  // Initialize AOS only on desktop devices
+  useEffect(() => {
+    const isDesktop = window.innerWidth >= 768;
+    if (isDesktop) {
+      import('aos').then((AOS) => {
+        import('aos/dist/aos.css');
+        AOS.default.init({
+          once: true,
+          duration: 500,
+          offset: -50,
+          disable: 'mobile',
+        });
+      });
+    }
+  }, []);
+
   return (
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>

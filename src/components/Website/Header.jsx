@@ -1,9 +1,9 @@
 import React, { Suspense, lazy } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { logo, websitePagesLinks } from "../../constants";
-// import Drawer from "react-modern-drawer"; // Lazy loaded
 import { Divide as Hamburger } from "hamburger-react";
 import { IoMdClose } from "react-icons/io";
+import "react-modern-drawer/dist/index.css";
 
 const Drawer = lazy(() => import("react-modern-drawer"));
 

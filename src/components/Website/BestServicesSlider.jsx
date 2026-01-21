@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
 import cardItemBg from "../../assets/service-slider-item-bg.png";
 import webDevIcon from "../../assets/slider-item-webdev-icon.png";
 import appDevIcon from "../../assets/slider-item-appdev-icon.png";

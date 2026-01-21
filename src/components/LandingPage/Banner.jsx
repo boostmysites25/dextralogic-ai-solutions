@@ -1,13 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import vid from "../../assets/vids/banner.mp4";
-import ReactPlayer from "react-player";
 import { motion } from "framer-motion";
 import { FaCode, FaMobileAlt, FaRocket, FaServer } from "react-icons/fa";
 import { Link } from "react-scroll";
 
+const bannerImg = "/assets/landing-about.webp";
+
 const Banner = ({ page }) => {
   const isWebDevelopment = Boolean(page === "web-development");
   const [isVideoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    // Fallback timer in case video takes too long or fails
+    const timer = setTimeout(() => {
+      setVideoLoaded(true);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Features based on page type
   const features = isWebDevelopment
@@ -26,28 +35,19 @@ const Banner = ({ page }) => {
     <div id="banner" className="min-h-screen relative overflow-hidden">
       {/* Video Background with Overlay */}
       <div className="absolute inset-0 w-full h-full banner">
-        <ReactPlayer
-          url={vid}
-          playing
+        <video
+          autoPlay
           loop
           muted
-          width="100%"
-          height="100%"
-          playsinline
-          onReady={() => setVideoLoaded(true)}
-          pip={false}
-          config={{
-            file: {
-              attributes: {
-                controlsList: "nodownload noplaybackrate",
-                disablePictureInPicture: true,
-                playsinline: true,
-              },
-            },
-          }}
-          controls={false}
+          playsInline
+          preload="metadata"
+          poster={bannerImg}
+          onLoadedData={() => setVideoLoaded(true)}
+          className="w-full h-full object-cover"
           style={{ objectFit: "cover" }}
-        />
+        >
+          <source src={vid} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
       </div>
 

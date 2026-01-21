@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Suspense, lazy } from "react";
+import React, { useEffect, useState } from "react";
 import vid from "../../assets/vids/banner.mp4";
 
 import { Link } from "react-router-dom";
@@ -7,8 +7,6 @@ import { FaRobot, FaCode, FaChartLine, FaArrowRight } from "react-icons/fa";
 
 // import bannerImg from "../../assets/landing-about.webp";
 const bannerImg = "/assets/landing-about.webp"; // Served from public/assets
-
-const ReactPlayer = lazy(() => import("react-player"));
 
 const Banner = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -31,7 +29,7 @@ const Banner = () => {
       // Fallback timer in case video takes too long or fails
       const timer = setTimeout(() => {
         setIsVideoLoaded(true);
-      }, 1000);
+      }, 500);
       return () => clearTimeout(timer);
     }
   }, [isMobile]);
@@ -55,30 +53,19 @@ const Banner = () => {
               className="w-full h-full object-cover"
             />
           ) : (
-            <Suspense fallback={<div className="w-full h-full bg-black" />}>
-              <ReactPlayer
-                url={vid}
-                playing
-                loop
-                muted
-                width="100%"
-                height="100%"
-                playsinline
-                pip={false}
-                onReady={() => setIsVideoLoaded(true)}
-                config={{
-                  file: {
-                    attributes: {
-                      controlsList: "nodownload noplaybackrate",
-                      disablePictureInPicture: true,
-                      playsinline: true,
-                    },
-                  },
-                }}
-                controls={false}
-                style={{ objectFit: "cover" }}
-              />
-            </Suspense>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              poster={bannerImg}
+              onLoadedData={() => setIsVideoLoaded(true)}
+              className="w-full h-full object-cover"
+              style={{ objectFit: "cover" }}
+            >
+              <source src={vid} type="video/mp4" />
+            </video>
           )}
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
         </div>

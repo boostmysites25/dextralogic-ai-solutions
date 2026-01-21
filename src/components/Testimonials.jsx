@@ -1,6 +1,7 @@
 import React from "react";
 import bgImg from "../assets/testimonial-bg.png";
 import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
 import { RiDoubleQuotesR } from "react-icons/ri";
 import { testimonials } from "../constants";
 import { motion } from "framer-motion";
