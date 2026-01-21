@@ -82,8 +82,9 @@
   }
   
   /* Offcanvas Menu Styles */
+  /* Offcanvas Menu Styles */
   .offcanvas-link {
-    @apply text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 bg-primary/10 text-primary relative overflow-hidden;
+    @apply text-2xl font-medium block py-3 px-4 rounded-xl transition-all duration-300 hover:bg-primary bg-opacity-10 text-primary relative overflow-hidden;
   }
   
   .offcanvas-link::after {
