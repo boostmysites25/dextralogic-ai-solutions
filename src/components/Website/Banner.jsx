@@ -9,8 +9,7 @@ import { FaRobot, FaCode, FaChartLine, FaArrowRight } from "react-icons/fa";
 const bannerImg = "/assets/landing-about.webp"; // Served from public/assets
 
 const Banner = () => {
-  // Initialize based on viewport - mobile gets instant visibility for LCP
-  // const [isMobile] = useState(window.innerWidth < 768);
+  const [isMobile] = useState(() => typeof window !== "undefined" ? window.innerWidth < 768 : false);
 
   const features = [
     { icon: <FaRobot />, text: "AI & Machine Learning" },
