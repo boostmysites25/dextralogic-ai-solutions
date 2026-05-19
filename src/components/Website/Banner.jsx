@@ -10,7 +10,7 @@ const bannerImg = "/assets/landing-about.webp"; // Served from public/assets
 
 const Banner = () => {
   // Initialize based on viewport - mobile gets instant visibility for LCP
-  const [isMobile] = useState(window.innerWidth < 768);
+  // const [isMobile] = useState(window.innerWidth < 768);
 
   const features = [
     { icon: <FaRobot />, text: "AI & Machine Learning" },
@@ -23,7 +23,7 @@ const Banner = () => {
       <div id="banner" className="min-h-screen relative overflow-hidden">
         {/* Video Background with Improved Overlay */}
         <div className="absolute inset-0 w-full h-full banner">
-          {isMobile ? (
+          {/* {isMobile ? (
             <img
               src={bannerImg}
               srcSet="/assets/landing-about.webp 1024w"
@@ -34,7 +34,7 @@ const Banner = () => {
               height="768"
               className="w-full h-full object-cover"
             />
-          ) : (
+          ) : ( */}
             <video
               autoPlay
               loop
@@ -47,7 +47,7 @@ const Banner = () => {
             >
               <source src={vid} type="video/mp4" />
             </video>
-          )}
+          {/* )} */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
         </div>
 
